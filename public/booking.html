@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<!-- clinic-automation booking + intake page (public/booking.html). -->
+<!-- clinic-automation booking + intake page (public/booking.html).
+     Element IDs and field names are a contract with /js/booking.js — keep them. -->
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Book appointment — Clinic Automation</title>
+  <title>Book an appointment — Your Clinic Name</title>
+  <meta name="description" content="Choose a slot and book your appointment online." />
+  <meta name="theme-color" content="#0a3d68" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
-      <a class="brand" href="/">Your Clinic Name</a>
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Your Clinic Name<span class="brand-sub">Care &amp; Diagnostics</span></span>
+      </a>
       <div class="nav-links">
         <a href="/">Home</a>
         <a href="/booking.html" class="active" aria-current="page">Book appointment</a>
@@ -23,39 +29,107 @@
   <main class="container">
     <div id="flash"></div>
 
+    <div class="page-head">
+      <span class="eyebrow">Online booking</span>
+      <h1>Book an appointment</h1>
+      <p class="lede">Pick a date and time, tell us a little about you, and you'll receive an instant confirmation on WhatsApp.</p>
+    </div>
+
     <section class="card">
-      <h1 class="card-title">Book an appointment</h1>
-      <form id="booking-form">
-        <label>Full name <input name="name" required placeholder="e.g. Priya Sharma" /></label>
-        <label>Phone (WhatsApp) <input name="phone" required placeholder="+919876543210" /></label>
-        <label>Date <input name="date" type="date" id="date-input" required /></label>
-        <label>Time slot <select name="slotStart" id="slot-select" required><option value="">Pick a date first</option></select></label>
-        <label>Service
-          <select name="service">
-            <option>General consultation</option>
-            <option>Follow-up visit</option>
-            <option>Skin / hair concern</option>
-            <option>Dental concern</option>
-            <option>Physiotherapy</option>
-            <option>Vaccination</option>
-            <option>Health checkup</option>
-            <option>Other</option>
+      <h2 class="card-title">
+        <span class="step-num">1</span>
+        Your details &amp; preferred time
+      </h2>
+
+      <form id="booking-form" novalidate>
+        <div class="grid grid-2">
+          <label>Full name
+            <input name="name" id="name-input" required autocomplete="name" placeholder="e.g. Priya Sharma" />
+            <span class="field-hint">As it appears on your ID</span>
+          </label>
+
+          <label>Phone (WhatsApp)
+            <input name="phone" id="phone-input" required autocomplete="tel" inputmode="tel" placeholder="+919876543210" />
+            <span class="field-hint">Include your country code — this is where reminders go</span>
+          </label>
+        </div>
+
+        <div class="grid grid-2">
+          <label>Preferred date
+            <input name="date" type="date" id="date-input" required />
+          </label>
+
+          <label>Service
+            <select name="service" id="service-select">
+              <option>General consultation</option>
+              <option>Follow-up visit</option>
+              <option>Skin / hair concern</option>
+              <option>Dental concern</option>
+              <option>Physiotherapy</option>
+              <option>Vaccination</option>
+              <option>Health checkup</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
+
+        <label>Time slot
+          <select name="slotStart" id="slot-select" required>
+            <option value="">Pick a date first</option>
           </select>
+          <span class="field-hint" id="slot-hint">Available times appear once you choose a date.</span>
         </label>
-        <div class="btn-row"><button class="btn" type="submit">Book</button></div>
+
+        <div class="btn-row">
+          <button class="btn" type="submit" id="book-btn">Confirm booking</button>
+          <a class="btn btn-ghost" href="/">Cancel</a>
+        </div>
       </form>
     </section>
 
+    <!-- Step 2: intake. Revealed by /js/booking.js after a booking is created. -->
     <section class="card mt" id="intake-card" hidden>
-      <h2 class="card-title">Intake details</h2>
+      <h2 class="card-title">
+        <span class="step-num">2</span>
+        Intake details
+      </h2>
       <p class="small muted" id="intake-note"></p>
-      <form id="intake-form"><div id="intake-fields"></div>
-        <div class="btn-row"><button class="btn" type="submit">Submit intake</button></div>
+
+      <form id="intake-form">
+        <div id="intake-fields"></div>
+        <div class="btn-row">
+          <button class="btn" type="submit">Submit intake</button>
+          <button class="btn btn-ghost" type="button" id="skip-intake">Skip for now</button>
+        </div>
       </form>
+    </section>
+
+    <section class="card mt">
+      <h2 class="card-title">What happens next</h2>
+      <div class="grid grid-3 mt">
+        <div>
+          <p class="small"><strong>Instant confirmation</strong></p>
+          <p class="small muted">A WhatsApp message lands the moment your slot is booked.</p>
+        </div>
+        <div>
+          <p class="small"><strong>Reminder before your visit</strong></p>
+          <p class="small muted">Confirm, reschedule or cancel straight from the message.</p>
+        </div>
+        <div>
+          <p class="small"><strong>Post-visit follow-up</strong></p>
+          <p class="small muted">We check in and share your receipt.</p>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer"><span>Confirmations arrive on WhatsApp.</span></footer>
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; Your Clinic Name — Care &amp; Diagnostics.</span>
+      <span>Confirmations arrive on WhatsApp.</span>
+    </div>
+  </footer>
+
   <script src="/js/booking.js"></script>
 </body>
 </html>
