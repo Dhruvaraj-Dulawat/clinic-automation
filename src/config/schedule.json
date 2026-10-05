@@ -1,0 +1,23 @@
+{
+  "_comment": "node-cron schedules + messaging windows. Cron uses 5-field syntax (minute hour day month weekday). Times run in server local time — keep the VPS timezone set to the clinic timezone.",
+  "reminders": {
+    "_comment": "24h-before appointment reminder with confirm/cancel quick-replies.",
+    "cron": "*/15 * * * *",
+    "hoursBefore": 24,
+    "lookAheadMinutes": 20
+  },
+  "followups": {
+    "_comment": "Post-visit follow-up message asking how the patient is doing.",
+    "cron": "0 10 * * *",
+    "daysAfter": 1
+  },
+  "reengagement": {
+    "_comment": "Win-back messages for clients with no visit in N days. Edit windowsDays to change the 30/60/90-day ladder.",
+    "cron": "0 11 * * MON",
+    "windowsDays": [30, 60, 90]
+  },
+  "digest": {
+    "_comment": "Weekly owner digest (counts + flags). Consumed by src/services/digest.js.",
+    "cron": "0 8 * * MON"
+  }
+}

@@ -1,0 +1,35 @@
+# clinic-automation .gitignore
+node_modules/
+.env
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+# Pre-purge safety backups (data/clinic.db.pre-fixture-purge.*.bak) contain a
+# copy of the whole patient database - never let `git add .` commit one.
+*.bak
+data/receipts/*
+!data/receipts/.gitkeep
+
+# Stray patient PDFs written to a literal directory named "undefined" by a
+# build where the receipts dir resolved to undefined (fixed in src/services/pdf.js,
+# which now defaults to data/receipts and honours RECEIPTS_DIR). The files are
+# STILL the only copies of those consent records, so they are deliberately NOT
+# deleted here - they are ignored so a `git add .` cannot commit patient names
+# and phone numbers. Move them into data/receipts/ or delete them deliberately.
+undefined/
+
+logs/
+*.log
+.DS_Store
+Thumbs.db
+
+# Internal AI-agent task tracking (.opencode/). Not part of the application —
+# keeping it out of the published repo avoids shipping scratch/verification
+# notes to the public. The application itself never reads this directory.
+.opencode/
+
+# Local scratch: ad-hoc verification scripts written at the repo root.
+_verify_*.js
+_scratch/
+*.tmp.js

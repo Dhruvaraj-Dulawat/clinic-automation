@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- clinic-automation admin shell (public/admin.html). Login form + tabs
+     (Clients / Import / Reports). Reports tab body is div#reports — reserved
+     mount point for M7 (js/reports.js appends there; safe when absent). -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin — Clinic Automation</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="/">Admin</a>
+      <div class="nav-links">
+        <a href="/">Site</a>
+        <a href="/admin.html" class="active">Dashboard</a>
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    <section class="card" id="login-card">
+      <h1>Staff login</h1>
+      <form id="login-form">
+        <label>Username <input name="username" autocomplete="username" required /></label>
+        <label>Password <input name="password" type="password" autocomplete="current-password" required /></label>
+        <button class="btn" type="submit">Log in</button>
+        <p class="field-error" id="login-error" hidden></p>
+      </form>
+    </section>
+    <section id="dashboard" hidden>
+      <!-- Tabs: Clients / Import / Reports -->
+      <nav class="tabs" aria-label="Admin sections">
+        <button class="tab active" data-tab="clients" type="button">Clients</button>
+        <button class="tab" data-tab="import" type="button">Import</button>
+        <button class="tab" data-tab="reports" type="button">Reports</button>
+        <span class="tab-spacer"></span>
+        <button class="btn btn-secondary btn-small" id="logout-btn" type="button">Logout</button>
+      </nav>
+      <div class="card tab-panel" id="tab-clients">
+        <h2 class="card-title">Clients</h2>
+        <form id="search-form"><label>Search <input name="q" id="q" placeholder="name, phone, tag" /></label></form>
+        <div class="table-wrap"><table id="clients-table">
+          <thead><tr><th>Name</th><th>Phone</th><th>Tags</th><th>Actions</th></tr></thead>
+          <tbody></tbody>
+        </table></div>
+        <p><a class="btn btn-secondary btn-small" href="/api/admin/export.csv">Export CSV</a></p>
+      </div>
+      <div class="card tab-panel mt" id="tab-import" hidden>
+        <h2 class="card-title">CSV import (dedupe by phone)</h2>
+        <form id="import-form">
+          <label>Paste CSV (name,phone,email,tags,notes) <textarea name="csv" id="csv"></textarea></label>
+          <button class="btn" type="submit">Import</button>
+        </form>
+        <pre id="import-result" class="small muted"></pre>
+      </div>
+      <div class="card tab-panel mt" id="tab-reports" hidden>
+        <h2 class="card-title">Reports</h2>
+        <!-- M7 mount point: js/reports.js renders here when it lands. -->
+        <div id="reports"><p class="small muted">Reports land with M7.</p></div>
+      </div>
+    </section>
+  </main>
+  <script src="/js/admin.js"></script>
+  <script src="/js/reports.js"></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+/* ==========================================================================
+ * clinic-automation — shared stylesheet (public/css/style.css)
+ * Mobile-first, no framework. Loaded by every public page + admin shell.
+ * Sections: 1 reset/tokens 2 layout 3 nav 4 cards 5 forms 6 buttons
+ *           7 tables 8 flash messages 9 utilities
+ * ========================================================================== */
+
+/* ---- 1. Reset + design tokens ------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --text: #1c2533;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --primary: #0f766e;        /* teal — clinic / care feel */
+  --primary-dark: #0b5e58;
+  --accent: #f59e0b;         /* warm highlight for CTAs/badges */
+  --danger: #dc2626;
+  --success: #16a34a;
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+  --max-width: 960px;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
+}
+h1, h2, h3 { line-height: 1.25; margin: 0 0 0.5rem; }
+p { margin: 0 0 0.75rem; }
+a { color: var(--primary); }
+img { max-width: 100%; height: auto; }
+
+/* ---- 2. Layout ----------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem;
+}
+@media (min-width: 720px) {
+  .container { padding: 1.5rem; }
+}
+.grid { display: grid; gap: 1rem; }
+@media (min-width: 720px) {
+  .grid-2 { grid-template-columns: 1fr 1fr; }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+main { padding-bottom: 3rem; }
+footer.site-footer {
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.875rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* ---- 3. Nav -------------------------------------------------------------- */
+.site-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+}
+.brand { font-weight: 700; text-decoration: none; color: var(--text); }
+.nav-links { display: flex; gap: 0.25rem; flex-wrap: wrap; }
+.nav-links a {
+  text-decoration: none;
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+  color: var(--text);
+}
+.nav-links a:hover, .nav-links a.active { background: #e6f4f2; color: var(--primary-dark); }
+
+/* ---- 4. Cards ------------------------------------------------------------ */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+@media (min-width: 720px) {
+  .card { padding: 1.25rem; }
+}
+.card-title { margin-bottom: 0.25rem; font-size: 1.1rem; }
+.card-muted { color: var(--muted); font-size: 0.9rem; }
+
+/* ---- 5. Forms ------------------------------------------------------------ */
+form { display: grid; gap: 0.75rem; }
+label { font-weight: 600; font-size: 0.925rem; display: grid; gap: 0.3rem; }
+input, select, textarea {
+  font: inherit;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  width: 100%;
+}
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+  border-color: var(--primary);
+}
+textarea { min-height: 90px; resize: vertical; }
+.checkbox-row { display: flex; gap: 0.5rem; align-items: flex-start; font-weight: 400; }
+.checkbox-row input { width: auto; margin-top: 0.25rem; }
+.field-hint { color: var(--muted); font-size: 0.825rem; font-weight: 400; }
+.field-error { color: var(--danger); font-size: 0.85rem; }
+
+/* ---- 6. Buttons ---------------------------------------------------------- */
+.btn {
+  display: inline-block;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  background: var(--primary);
+  color: #fff;
+}
+.btn:hover { background: var(--primary-dark); }
+.btn-secondary { background: #fff; color: var(--text); border-color: var(--border); }
+.btn-secondary:hover { background: #f1f5f9; }
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-small { padding: 0.35rem 0.65rem; font-size: 0.875rem; }
+.btn-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+/* ---- 7. Tables ----------------------------------------------------------- */
+.table-wrap { overflow-x: auto; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.925rem;
+  background: var(--surface);
+}
+th, td { text-align: left; padding: 0.6rem; border-bottom: 1px solid var(--border); }
+th { background: #f1f5f9; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; }
+tr:last-child td { border-bottom: 0; }
+.status { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; background: #e2e8f0; }
+.status-booked { background: #fef3c7; }
+.status-confirmed { background: #dcfce7; }
+.status-cancelled { background: #fee2e2; }
+
+/* ---- 8. Flash messages --------------------------------------------------- */
+.flash { padding: 0.7rem 0.9rem; border-radius: 8px; margin-bottom: 1rem; }
+.flash-success { background: #dcfce7; border: 1px solid #86efac; }
+.flash-error { background: #fee2e2; border: 1px solid #fca5a5; }
+.flash-info { background: #e0f2fe; border: 1px solid #7dd3fc; }
+
+/* ---- 9. Utilities -------------------------------------------------------- */
+.muted { color: var(--muted); }
+.small { font-size: 0.85rem; }
+.mt { margin-top: 1rem; }
+.actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }

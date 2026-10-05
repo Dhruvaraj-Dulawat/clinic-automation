@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- clinic-automation landing page. Static, no build step; served by Express.
+     Links the shared stylesheet and routes visitors to booking / status / admin. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clinic Automation — Book your visit</title>
+  <meta name="description" content="Book appointments, complete intake, and check visit status online." />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <!-- CLINIC_NAME is injected via server config at runtime; placeholder for now -->
+      <a class="brand" href="/">Your Clinic Name</a>
+      <div class="nav-links">
+        <a href="/" class="active" aria-current="page">Home</a>
+        <a href="/booking.html">Book appointment</a>
+        <a href="/status.html">Check status</a>
+        <a href="/admin.html">Admin</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1>Book your visit in under a minute</h1>
+      <p class="card-muted">Pick a time slot, share a few details, and get confirmations on WhatsApp.</p>
+      <div class="actions">
+        <a class="btn" href="/booking.html">Book appointment</a>
+        <a class="btn btn-secondary" href="/status.html">Check my appointment</a>
+      </div>
+    </section>
+
+    <section class="grid grid-3 mt" aria-label="How it works">
+      <div class="card">
+        <h2 class="card-title">1. Choose a slot</h2>
+        <p class="small muted">Live availability — no double-booking, no phone tag.</p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">2. Share intake details</h2>
+        <p class="small muted">A short questionnaire helps the doctor prepare.</p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">3. Get reminders</h2>
+        <p class="small muted">Confirmations, reminders, and follow-ups over WhatsApp.</p>
+      </div>
+    </section>
+
+    <section class="card mt">
+      <h2 class="card-title">Visit information</h2>
+      <p class="small">Clinic hours and address are configured by the administrator (see <code>.env.example</code> → <code>CLINIC_*</code> keys). Update this section with real hours, map link, and contact number before launch.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>&copy; Your Clinic Name — powered by clinic-automation.</span>
+    <span> <a href="/admin.html">Staff login</a></span>
+  </footer>
+</body>
+</html>

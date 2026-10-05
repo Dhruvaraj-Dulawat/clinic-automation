@@ -1,0 +1,49 @@
+[
+  {
+    "_comment": "Client full name. Maps to clients.name in the database.",
+    "id": "full_name",
+    "label": "Full name",
+    "type": "text",
+    "required": true,
+    "placeholder": "e.g. Priya Sharma"
+  },
+  {
+    "_comment": "Contact phone, stored normalized (digits + leading +). Dedupe key for CSV import.",
+    "id": "phone",
+    "label": "Phone number (WhatsApp)",
+    "type": "phone",
+    "required": true,
+    "placeholder": "e.g. +919876543210"
+  },
+  {
+    "_comment": "Reason for visit. Keep options in sync with services offered; 'other' allows free text.",
+    "id": "reason_for_visit",
+    "label": "Reason for visit",
+    "type": "select",
+    "required": true,
+    "options": ["General consultation", "Follow-up visit", "Skin / hair concern", "Dental concern", "Physiotherapy", "Vaccination", "Health checkup", "Other"]
+  },
+  {
+    "_comment": "Free-text symptoms / notes shown to staff before the appointment.",
+    "id": "symptoms_notes",
+    "label": "Symptoms or notes for the doctor (optional)",
+    "type": "textarea",
+    "required": false,
+    "placeholder": "Briefly describe symptoms, duration, current medication..."
+  },
+  {
+    "_comment": "Preferred contact channel for confirmations and reminders.",
+    "id": "preferred_contact",
+    "label": "Preferred contact channel",
+    "type": "select",
+    "required": false,
+    "options": ["WhatsApp", "SMS / Call"]
+  },
+  {
+    "_comment": "Explicit consent checkbox. Must be true before intake can be submitted.",
+    "id": "consent",
+    "label": "I consent to the clinic storing my details and contacting me about my appointment.",
+    "type": "checkbox",
+    "required": true
+  }
+]

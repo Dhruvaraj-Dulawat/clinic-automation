@@ -1,0 +1,15 @@
+# clinic-automation — single-host deploy (target VPS, no local Docker needed)
+# Run: `docker compose up -d --build` with a real `.env` beside this file.
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      - DB_PATH=/app/data/clinic.db
+    volumes:
+      - ./data:/app/data

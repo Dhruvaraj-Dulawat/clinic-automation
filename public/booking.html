@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- clinic-automation booking + intake page (public/booking.html). -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book appointment — Clinic Automation</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="/">Your Clinic Name</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/booking.html" class="active" aria-current="page">Book appointment</a>
+        <a href="/status.html">Check status</a>
+        <a href="/admin.html">Admin</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div id="flash"></div>
+
+    <section class="card">
+      <h1 class="card-title">Book an appointment</h1>
+      <form id="booking-form">
+        <label>Full name <input name="name" required placeholder="e.g. Priya Sharma" /></label>
+        <label>Phone (WhatsApp) <input name="phone" required placeholder="+919876543210" /></label>
+        <label>Date <input name="date" type="date" id="date-input" required /></label>
+        <label>Time slot <select name="slotStart" id="slot-select" required><option value="">Pick a date first</option></select></label>
+        <label>Service
+          <select name="service">
+            <option>General consultation</option>
+            <option>Follow-up visit</option>
+            <option>Skin / hair concern</option>
+            <option>Dental concern</option>
+            <option>Physiotherapy</option>
+            <option>Vaccination</option>
+            <option>Health checkup</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <div class="btn-row"><button class="btn" type="submit">Book</button></div>
+      </form>
+    </section>
+
+    <section class="card mt" id="intake-card" hidden>
+      <h2 class="card-title">Intake details</h2>
+      <p class="small muted" id="intake-note"></p>
+      <form id="intake-form"><div id="intake-fields"></div>
+        <div class="btn-row"><button class="btn" type="submit">Submit intake</button></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span>Confirmations arrive on WhatsApp.</span></footer>
+  <script src="/js/booking.js"></script>
+</body>
+</html>
