@@ -1,0 +1,43 @@
+# clinic-automation — Fly.io deploy (app + persistent volume)
+# Region bom (Mumbai) keeps latency low for Indian clinics/patients.
+# Docs: https://fly.io/docs/reference/configuration/
+app = 'dhruv-clinic-app'
+primary_region = 'bom'
+
+[build]
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  # Keep ONE machine awake: node-cron reminders, follow-ups and re-engagement
+  # only fire while the process runs. Letting the machine sleep to zero would
+  # silently skip appointment reminders — the opposite of what this app is for.
+  # One shared-CPU machine stays inside Fly's free allowance.
+  auto_stop_machines = 'off'
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ['app']
+
+# SQLite + receipts live here. Without a volume the database is wiped on every
+# deploy/restart. Create once: `fly volumes create clinic_data --region bom --size 1`
+[mounts]
+  source = 'clinic_data'
+  destination = '/app/data'
+
+[env]
+  NODE_ENV = 'production'
+  DB_PATH = '/app/data/clinic.db'
+  WHATSAPP_MOCK_MODE = 'true'
+  # Fly terminates TLS at its edge and forwards plain HTTP internally, so the
+  # app must trust X-Forwarded-For for correct client IPs (rate limiting).
+  TRUST_PROXY = 'true'
+
+[checks]
+  [checks.health]
+    grace_period = '20s'
+    interval = '30s'
+    method = 'GET'
+    path = '/api/health'
+    port = 3000
+    timeout = '5s'
+    type = 'http'
