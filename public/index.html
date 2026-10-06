@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Clinic Name — Care, without the waiting room</title>
+  <title>Your Clinic Name â€” Care, without the waiting room</title>
   <meta name="description" content="Book appointments, complete your intake form, and check your visit status online. Reminders and confirmations on WhatsApp." />
   <meta name="theme-color" content="#0b1d26" />
   <link rel="stylesheet" href="/css/style.css" />
@@ -26,12 +26,15 @@
   <main class="container">
     <!-- ============================ HERO ============================ -->
     <section class="hero">
+      <!-- Ambient 3D particle field (progressive enhancement: if WebGL is
+           unavailable the canvas removes itself and the CSS behind shows). -->
+      <canvas class="particles" data-particles aria-hidden="true"></canvas>
       <div class="ghost-num" aria-hidden="true">01</div>
       <span class="eyebrow">A clinic that respects your time</span>
       <h1>Good health shouldn't need a waiting room</h1>
       <p class="lede">
         Book in under a minute, complete your intake from the sofa, and let
-        WhatsApp handle the rest — instant confirmation, a reminder before you
+        WhatsApp handle the rest â€” instant confirmation, a reminder before you
         arrive, and a follow-up after you leave.
       </p>
 
@@ -77,7 +80,7 @@
       <div>
         <span class="eyebrow">Get started</span>
         <h2>Pick a slot that's really free</h2>
-        <p>Live availability means the time you choose is genuinely yours — no double-booking, no phone tag, no showing up to a full waiting room.</p>
+        <p>Live availability means the time you choose is genuinely yours â€” no double-booking, no phone tag, no showing up to a full waiting room.</p>
         <div class="actions">
           <a class="link-arrow" href="/booking.html">Book now</a>
         </div>
@@ -87,7 +90,7 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>
         </div>
         <h3 class="card-title">Today, tomorrow, next week</h3>
-        <p class="small muted">Morning to evening slots. Choose the day, see what's open, take it — it's held instantly.</p>
+        <p class="small muted">Morning to evening slots. Choose the day, see what's open, take it â€” it's held instantly.</p>
       </div>
     </section>
 
@@ -99,12 +102,12 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h3"/></svg>
         </div>
         <h3 class="card-title">Two minutes of background</h3>
-        <p class="small muted">A short questionnaire after booking, so your doctor walks in already briefed — not reading a clipboard.</p>
+        <p class="small muted">A short questionnaire after booking, so your doctor walks in already briefed â€” not reading a clipboard.</p>
       </div>
       <div>
         <span class="eyebrow">Before you arrive</span>
         <h2>Answer once, from your sofa</h2>
-        <p>Medical history, current medication, the reason for your visit. It lands straight in your file — nothing to repeat at the desk.</p>
+        <p>Medical history, current medication, the reason for your visit. It lands straight in your file â€” nothing to repeat at the desk.</p>
         <div class="actions">
           <a class="link-arrow" href="/booking.html">Start booking</a>
         </div>
@@ -127,7 +130,7 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         </div>
         <h3 class="card-title">No app to install</h3>
-        <p class="small muted">Everything arrives as an ordinary WhatsApp message. Reply CONFIRM, CANCEL or RESCHEDULE — it's handled automatically.</p>
+        <p class="small muted">Everything arrives as an ordinary WhatsApp message. Reply CONFIRM, CANCEL or RESCHEDULE â€” it's handled automatically.</p>
       </div>
     </section>
 
@@ -164,10 +167,11 @@
   <footer class="site-footer">
     <div class="container">
       <span>&copy; <span id="year">2026</span> Your Clinic Name. All rights reserved.</span>
-      <span><a href="/booking.html">Book</a> &nbsp;·&nbsp; <a href="/status.html">Status</a> &nbsp;·&nbsp; <a href="/admin.html">Staff login</a></span>
+      <span><a href="/booking.html">Book</a> &nbsp;Â·&nbsp; <a href="/status.html">Status</a> &nbsp;Â·&nbsp; <a href="/admin.html">Staff login</a></span>
     </div>
   </footer>
 
+  <script src="/js/particles.js"></script>
   <script>
     (function () {
       var el = document.getElementById('year');
