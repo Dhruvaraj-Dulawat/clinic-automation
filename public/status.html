@@ -5,18 +5,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Check my appointment — Your Clinic Name</title>
+  <title>Check my appointment — Your Clinic</title>
   <meta name="description" content="Look up your upcoming appointment status." />
-  <meta name="theme-color" content="#0a3d68" />
+  <meta name="theme-color" content="#0b1d26" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
-      <a class="brand" href="/">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span>Your Clinic Name<span class="brand-sub">Care &amp; Diagnostics</span></span>
-      </a>
+      <a class="brand" href="/">Your Clinic<span class="brand-sub">Care &amp; Diagnostics</span></a>
       <div class="nav-links">
         <a href="/">Home</a>
         <a href="/booking.html">Book appointment</a>
@@ -31,8 +28,8 @@
 
     <div class="page-head">
       <span class="eyebrow">Your visit</span>
-      <h1>Check my appointment</h1>
-      <p class="lede">See when you're due in and what to expect. You need your WhatsApp number and the last 4 digits.</p>
+      <h1>Where things stand</h1>
+      <p class="lede">Your number plus its last four digits — that's all it takes, and all anyone else would need, which is why we ask for both.</p>
     </div>
 
     <section class="card">
@@ -44,7 +41,7 @@
 
           <label>Last 4 digits
             <input name="last4" id="status-last4" required inputmode="numeric" maxlength="4" autocomplete="off" placeholder="3210" />
-            <span class="field-hint">A privacy check, so nobody else can look up your visits.</span>
+            <span class="field-hint">So nobody else can look up your visits.</span>
           </label>
 
           <div class="btn-row">
@@ -52,11 +49,10 @@
           </div>
         </form>
 
-        <aside class="card card-hover" style="background:var(--surface-2)">
-          <h2 class="card-title">Need to change something?</h2>
+        <aside class="card" style="background:rgba(251,215,132,.04)">
+          <h2 class="card-title">Plans changed?</h2>
           <p class="small muted">
-            You don't need to rebook. Reply to any WhatsApp message from the
-            clinic with:
+            Skip the phone queue. Reply to any WhatsApp message from the clinic:
           </p>
           <div class="actions" style="margin-top:12px">
             <span class="badge status-booked">CONFIRM</span>
@@ -64,7 +60,7 @@
             <span class="badge status-confirmed">RESCHEDULE</span>
           </div>
           <p class="small muted" style="margin-top:12px">
-            Your booking is updated instantly and you get a fresh confirmation.
+            Your booking updates instantly, with a fresh confirmation.
           </p>
         </aside>
       </div>
@@ -85,7 +81,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <span>&copy; Your Clinic Name — Care &amp; Diagnostics.</span>
+      <span>&copy; Your Clinic — Care &amp; Diagnostics.</span>
       <span>Need changes? Reply to any WhatsApp message from the clinic.</span>
     </div>
   </footer>

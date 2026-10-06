@@ -5,18 +5,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Book an appointment — Your Clinic Name</title>
+  <title>Book an appointment — Your Clinic</title>
   <meta name="description" content="Choose a slot and book your appointment online." />
-  <meta name="theme-color" content="#0a3d68" />
+  <meta name="theme-color" content="#0b1d26" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
-      <a class="brand" href="/">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span>Your Clinic Name<span class="brand-sub">Care &amp; Diagnostics</span></span>
-      </a>
+      <a class="brand" href="/">Your Clinic<span class="brand-sub">Care &amp; Diagnostics</span></a>
       <div class="nav-links">
         <a href="/">Home</a>
         <a href="/booking.html" class="active" aria-current="page">Book appointment</a>
@@ -31,8 +28,8 @@
 
     <div class="page-head">
       <span class="eyebrow">Online booking</span>
-      <h1>Book an appointment</h1>
-      <p class="lede">Pick a date and time, tell us a little about you, and you'll receive an instant confirmation on WhatsApp.</p>
+      <h1>Take the first step</h1>
+      <p class="lede">Tell us who you are and when suits you. Confirmation lands on WhatsApp the moment your slot is held.</p>
     </div>
 
     <section class="card">
@@ -82,7 +79,7 @@
 
         <div class="btn-row">
           <button class="btn" type="submit" id="book-btn">Confirm booking</button>
-          <a class="btn btn-ghost" href="/">Cancel</a>
+          <a class="btn btn-ghost" href="/">Not yet</a>
         </div>
       </form>
     </section>
@@ -91,7 +88,7 @@
     <section class="card mt" id="intake-card" hidden>
       <h2 class="card-title">
         <span class="step-num">2</span>
-        Intake details
+        A little background
       </h2>
       <p class="small muted" id="intake-note"></p>
 
@@ -104,20 +101,21 @@
       </form>
     </section>
 
-    <section class="card mt">
-      <h2 class="card-title">What happens next</h2>
+    <section class="mt-lg" aria-label="What happens next">
+      <span class="eyebrow">After you book</span>
+      <h2>Then, nothing — we handle it</h2>
       <div class="grid grid-3 mt">
-        <div>
-          <p class="small"><strong>Instant confirmation</strong></p>
-          <p class="small muted">A WhatsApp message lands the moment your slot is booked.</p>
+        <div class="card">
+          <h3 class="card-title">Instant confirmation</h3>
+          <p class="small muted">A WhatsApp message the second your slot is held.</p>
         </div>
-        <div>
-          <p class="small"><strong>Reminder before your visit</strong></p>
-          <p class="small muted">Confirm, reschedule or cancel straight from the message.</p>
+        <div class="card">
+          <h3 class="card-title">A reminder that respects you</h3>
+          <p class="small muted">The day before: confirm, reschedule or cancel from the message itself.</p>
         </div>
-        <div>
-          <p class="small"><strong>Post-visit follow-up</strong></p>
-          <p class="small muted">We check in and share your receipt.</p>
+        <div class="card">
+          <h3 class="card-title">A follow-up that cares</h3>
+          <p class="small muted">We check in after your visit — and share your receipt.</p>
         </div>
       </div>
     </section>
@@ -125,7 +123,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <span>&copy; Your Clinic Name — Care &amp; Diagnostics.</span>
+      <span>&copy; Your Clinic — Care &amp; Diagnostics.</span>
       <span>Confirmations arrive on WhatsApp.</span>
     </div>
   </footer>

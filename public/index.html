@@ -1,23 +1,19 @@
 <!DOCTYPE html>
-<!-- clinic-automation landing page. Static, no build step; served by Express.
-     Links the shared design system and routes visitors to booking / status / admin. -->
+<!-- clinic-automation landing page. Static, no build step; served by Express. -->
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Clinic Name — Book your visit online</title>
+  <title>Your Clinic Name — Care, without the waiting room</title>
   <meta name="description" content="Book appointments, complete your intake form, and check your visit status online. Reminders and confirmations on WhatsApp." />
-  <meta name="theme-color" content="#0a3d68" />
+  <meta name="theme-color" content="#0b1d26" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
       <!-- CLINIC_NAME is injected via server config at runtime; placeholder for now -->
-      <a class="brand" href="/">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span>Your Clinic Name<span class="brand-sub">Care &amp; Diagnostics</span></span>
-      </a>
+      <a class="brand" href="/">Your Clinic<span class="brand-sub">Care &amp; Diagnostics</span></a>
       <div class="nav-links">
         <a href="/" class="active" aria-current="page">Home</a>
         <a href="/booking.html">Book appointment</a>
@@ -30,123 +26,134 @@
   <main class="container">
     <!-- ============================ HERO ============================ -->
     <section class="hero">
-      <span class="eyebrow">Appointments, simplified</span>
-      <h1>Book your visit in under a minute</h1>
+      <div class="ghost-num" aria-hidden="true">01</div>
+      <span class="eyebrow">A clinic that respects your time</span>
+      <h1>Good health shouldn't need a waiting room</h1>
       <p class="lede">
-        Choose a slot that suits you, complete a short intake form, and leave the
-        rest to us. You'll get an instant confirmation and a reminder on WhatsApp —
-        no queues, no phone tag.
+        Book in under a minute, complete your intake from the sofa, and let
+        WhatsApp handle the rest — instant confirmation, a reminder before you
+        arrive, and a follow-up after you leave.
       </p>
+
+      <div class="actions" style="justify-content:center">
+        <a class="btn" href="/booking.html">Book appointment</a>
+        <a class="btn btn-secondary" href="/status.html">Check my appointment</a>
+      </div>
 
       <div class="hero-panel">
         <div>
-          <div class="hero-stat-label">Next available</div>
-          <div class="hero-stat-value">Today</div>
+          <div class="hero-stat-label">Booking</div>
+          <div class="hero-stat-value">Under a minute</div>
         </div>
         <div>
-          <div class="hero-stat-label">Booking</div>
-          <div class="hero-stat-value">24 / 7</div>
+          <div class="hero-stat-label">Available</div>
+          <div class="hero-stat-value">Day &amp; night</div>
         </div>
         <div>
           <div class="hero-stat-label">Reminders</div>
           <div class="hero-stat-value">WhatsApp</div>
         </div>
-        <div>
-          <div class="hero-stat-label">Waiting</div>
-          <div class="hero-stat-value">None</div>
-        </div>
-      </div>
-
-      <div class="actions">
-        <a class="btn" href="/booking.html">Book appointment</a>
-        <a class="btn btn-secondary" href="/status.html">Check my appointment</a>
       </div>
 
       <div class="trust">
         <span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
           Instant confirmation
         </span>
         <span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          Your details stay private
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Private by design
         </span>
         <span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          Reminder before you arrive
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Never miss a visit
         </span>
       </div>
     </section>
 
-    <!-- ====================== HOW IT WORKS ====================== -->
-    <div class="mt-lg"></div>
-    <h2 class="center">Three simple steps</h2>
-    <p class="center muted small">No waiting on hold. No paperwork at the desk.</p>
-
-    <section class="grid grid-3 mt" aria-label="How it works">
-      <div class="card card-hover">
-        <div class="icon-tile" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>
-        </div>
-        <h3 class="card-title"><span class="step-num">1</span>Choose your slot</h3>
-        <p class="small muted">Live availability, so the slot you pick is genuinely free — no double-booking, ever.</p>
-      </div>
-
-      <div class="card card-hover">
-        <div class="icon-tile" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h3"/></svg>
-        </div>
-        <h3 class="card-title"><span class="step-num">2</span>Share intake details</h3>
-        <p class="small muted">A short questionnaire saves time at the counter and helps your doctor prepare.</p>
-      </div>
-
-      <div class="card card-hover">
-        <div class="icon-tile" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        </div>
-        <h3 class="card-title"><span class="step-num">3</span>Get reminders</h3>
-        <p class="small muted">Confirmations, a reminder the day before, and a follow-up after your visit — all on WhatsApp.</p>
-      </div>
-    </section>
-
-    <!-- ====================== WHY / DEPARTMENTS ====================== -->
-    <div class="mt-lg"></div>
-    <section class="grid grid-2 mt">
-      <div class="card">
-        <h2 class="card-title">Specialities</h2>
-        <p class="small muted">Book the service you need — the form adapts to what you're visiting for.</p>
+    <!-- ======================= 01 / BOOK ======================= -->
+    <section class="step-row" aria-label="Step one: book">
+      <span class="ghost" aria-hidden="true">01</span>
+      <div>
+        <span class="eyebrow">Get started</span>
+        <h2>Pick a slot that's really free</h2>
+        <p>Live availability means the time you choose is genuinely yours — no double-booking, no phone tag, no showing up to a full waiting room.</p>
         <div class="actions">
-          <span class="badge">General consultation</span>
-          <span class="badge">Follow-up</span>
-          <span class="badge">Skin &amp; hair</span>
-          <span class="badge">Dental</span>
-          <span class="badge">Physiotherapy</span>
-          <span class="badge">Vaccination</span>
-          <span class="badge">Health checkup</span>
+          <a class="link-arrow" href="/booking.html">Book now</a>
         </div>
       </div>
-
       <div class="card">
-        <h2 class="card-title">Visit information</h2>
-        <p class="small muted">
-          Clinic hours, address and contact number are configured by the
-          administrator (<code>.env</code> → <code>CLINIC_*</code>). Update this
-          card with your real hours, map link and phone before going live.
-        </p>
-        <hr class="divider" />
-        <p class="small muted">
-          Need to change or cancel? Reply <strong>CANCEL</strong> or
-          <strong>RESCHEDULE</strong> to your confirmation message on WhatsApp and
-          it's handled automatically.
-        </p>
+        <div class="icon-tile" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>
+        </div>
+        <h3 class="card-title">Today, tomorrow, next week</h3>
+        <p class="small muted">Morning to evening slots. Choose the day, see what's open, take it — it's held instantly.</p>
       </div>
     </section>
 
-    <!-- ============================ CTA ============================ -->
+    <!-- ======================= 02 / INTAKE ======================= -->
+    <section class="step-row" aria-label="Step two: intake">
+      <span class="ghost" aria-hidden="true">02</span>
+      <div class="card">
+        <div class="icon-tile" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h3"/></svg>
+        </div>
+        <h3 class="card-title">Two minutes of background</h3>
+        <p class="small muted">A short questionnaire after booking, so your doctor walks in already briefed — not reading a clipboard.</p>
+      </div>
+      <div>
+        <span class="eyebrow">Before you arrive</span>
+        <h2>Answer once, from your sofa</h2>
+        <p>Medical history, current medication, the reason for your visit. It lands straight in your file — nothing to repeat at the desk.</p>
+        <div class="actions">
+          <a class="link-arrow" href="/booking.html">Start booking</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 03 / REMINDERS ======================= -->
+    <section class="step-row" aria-label="Step three: reminders">
+      <span class="ghost" aria-hidden="true">03</span>
+      <div>
+        <span class="eyebrow">After you book</span>
+        <h2>WhatsApp does the remembering</h2>
+        <p>Instant confirmation. A reminder the day before, with one-tap confirm, reschedule or cancel. A gentle follow-up after your visit. And if life gets busy, a nudge when you're due back.</p>
+        <div class="actions">
+          <a class="link-arrow" href="/status.html">Check an appointment</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon-tile" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h3 class="card-title">No app to install</h3>
+        <p class="small muted">Everything arrives as an ordinary WhatsApp message. Reply CONFIRM, CANCEL or RESCHEDULE — it's handled automatically.</p>
+      </div>
+    </section>
+
+    <!-- ======================= SERVICES ======================= -->
+    <div class="mt-lg"></div>
+    <section class="card">
+      <span class="eyebrow">Specialities</span>
+      <h2 class="card-title">One form, every visit</h2>
+      <p class="small muted">The booking form adapts to what you're coming in for.</p>
+      <div class="actions" style="margin-top:16px">
+        <span class="badge">General consultation</span>
+        <span class="badge">Follow-up</span>
+        <span class="badge">Skin &amp; hair</span>
+        <span class="badge">Dental</span>
+        <span class="badge">Physiotherapy</span>
+        <span class="badge">Vaccination</span>
+        <span class="badge">Health checkup</span>
+      </div>
+    </section>
+
+    <!-- ======================= CTA ======================= -->
     <div class="mt-lg"></div>
     <section class="card center">
-      <h2 class="card-title" style="justify-content:center">Ready when you are</h2>
-      <p class="muted small">Book online now — it only takes a minute.</p>
+      <span class="eyebrow" style="justify-content:center">Begin</span>
+      <h2 class="card-title" style="justify-content:center">Your visit starts here</h2>
+      <p class="muted small">Under a minute. No account, no phone call.</p>
       <div class="actions" style="justify-content:center">
         <a class="btn" href="/booking.html">Book appointment</a>
         <a class="btn btn-secondary" href="/status.html">Check my appointment</a>
@@ -156,13 +163,12 @@
 
   <footer class="site-footer">
     <div class="container">
-      <span>&copy; <span id="year">2026</span> Your Clinic Name — Care &amp; Diagnostics. All rights reserved.</span>
+      <span>&copy; <span id="year">2026</span> Your Clinic Name. All rights reserved.</span>
       <span><a href="/booking.html">Book</a> &nbsp;·&nbsp; <a href="/status.html">Status</a> &nbsp;·&nbsp; <a href="/admin.html">Staff login</a></span>
     </div>
   </footer>
 
   <script>
-    // Keep the copyright year current without a build step.
     (function () {
       var el = document.getElementById('year');
       if (el) el.textContent = String(new Date().getFullYear());
